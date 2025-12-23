@@ -1,4 +1,4 @@
-package com.example.myapplication // <--- THIS LINE IS MISSING
+package com.example.myapplication
 
 import com.example.myapplication.data.model.DailyStory
 
