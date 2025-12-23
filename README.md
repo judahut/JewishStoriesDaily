@@ -2,7 +2,7 @@
 
 A modern, offline-first Android application that delivers daily Jewish wisdom. Built entirely with **Kotlin** and **Jetpack Compose**, following **MVI (Model-View-Intent)** architecture.
 
-## 🛠 Tech Stack & Skills Demonstrated
+## Tech Stack & Skills Demonstrated
 
 * **UI:** Jetpack Compose (Material3), Custom Theming (Day/Cream/Night modes), Canvas Drawing.
 * **Architecture:** MVI (Unidirectional Data Flow), ViewModel, Repository Pattern.
@@ -11,7 +11,7 @@ A modern, offline-first Android application that delivers daily Jewish wisdom. B
 * **Navigation:** Jetpack Navigation Compose.
 * **Data Parsing:** HTML parsing for rich text display.
 
-## 🚀 Key Features
+## Key Features
 
 * **Offline-First:** Stories are cached locally; the app works perfectly without internet.
 * **Smart State Management:** Uses MVI to handle UI states (Loading, Success, Error, Empty).
