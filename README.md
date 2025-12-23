@@ -1,4 +1,4 @@
-# Talmudic Stories Daily 📜
+# Talmudic Stories Daily 
 
 A modern, offline-first Android application that delivers daily Jewish wisdom. Built entirely with **Kotlin** and **Jetpack Compose**, following **MVI (Model-View-Intent)** architecture.
 
