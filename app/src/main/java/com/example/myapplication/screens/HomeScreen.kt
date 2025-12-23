@@ -81,23 +81,21 @@ fun HomeScreen(
 
                 Row(modifier = Modifier.fillMaxSize()) {
 
-                    // 1. SCROLLING CONTENT
                     Column(
                         modifier = Modifier
                             .weight(1f)
                             .verticalScroll(scrollState)
                             .padding(horizontal = 20.dp)
                     ) {
-                        // --- 1. Top Margin (Status Bar Buffer) ---
                         Spacer(modifier = Modifier.height(48.dp))
 
-                        // --- 2. NEW: ICONS ROW (Part of the scrollable list now) ---
+
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween, // Pushes icons to edges
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            // Left Icon: Favorites List
+
                             IconButton(onClick = onFavoritesClick) {
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.List,
@@ -107,7 +105,6 @@ fun HomeScreen(
                                 )
                             }
 
-                            // Right Icon: Heart Toggle
                             val isFav = story.isFavorite
                             IconButton(onClick = { viewModel.toggleFavorite(story) }) {
                                 Icon(
@@ -119,10 +116,8 @@ fun HomeScreen(
                             }
                         }
 
-                        // Spacer between Icons and Title
                         Spacer(modifier = Modifier.height(24.dp))
 
-                        // --- HEADER (Prev / Title / Next) ---
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             verticalAlignment = Alignment.CenterVertically,
@@ -171,7 +166,6 @@ fun HomeScreen(
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        // --- CONTROLS ROW ---
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly,
@@ -235,7 +229,6 @@ fun HomeScreen(
                         Spacer(modifier = Modifier.height(40.dp))
                     }
 
-                    // 2. VERTICAL PROGRESS BAR
                     val progress = if (scrollState.maxValue > 0) {
                         scrollState.value.toFloat() / scrollState.maxValue.toFloat()
                     } else {
@@ -257,7 +250,6 @@ fun HomeScreen(
                     }
                 }
 
-                // --- REMOVED FLOATING BOX HERE ---
             }
 
             is AppUiState.Error -> {

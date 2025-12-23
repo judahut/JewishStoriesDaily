@@ -26,7 +26,6 @@ class AppViewModel(private val repository: ContentRepository) : ViewModel() {
     private var currentDayOffset = 0
 
     init {
-        // Load the initial story and start listening to the database for favorites
         loadDailyWisdom()
         observeFavorites()
     }
@@ -53,13 +52,8 @@ class AppViewModel(private val repository: ContentRepository) : ViewModel() {
         }
     }
 
-    // --- NEW: Called when user clicks a story in the Favorites Screen ---
     fun loadSpecificStory(story: DailyStory) {
-        // We directly update the UI with this specific story
         fireAction(ContentAction.StoryLoaded(story))
-
-        // Optional: Reset date string or set it to "From Favorites"
-        // since this story might not match the current calculated date.
         _dateString.value = "Selected Favorite"
     }
 
@@ -75,7 +69,6 @@ class AppViewModel(private val repository: ContentRepository) : ViewModel() {
 
     private fun observeFavorites() {
         viewModelScope.launch {
-            // This Flow updates automatically whenever the database changes
             repository.favorites.collect { favoriteStories ->
                 fireAction(ContentAction.FavoritesLoaded(favoriteStories))
             }

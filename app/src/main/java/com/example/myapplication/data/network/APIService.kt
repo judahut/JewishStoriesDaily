@@ -20,6 +20,6 @@ interface ApiService {
 
 val service: ApiService = Retrofit.Builder()
     .baseUrl("https://www.sefaria.org/api/")
-    .addConverterFactory(GsonConverterFactory.create()) // Standard Gson is fine now!
+    .addConverterFactory(GsonConverterFactory.create())
     .build()
     .create(ApiService::class.java)
