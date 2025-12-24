@@ -1,9 +1,6 @@
 package com.example.myapplication.screens
 
-import android.content.Context
-import android.content.Intent
 import android.graphics.Typeface
-import android.text.Html
 import android.widget.TextView
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -42,14 +39,9 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import com.example.myapplication.AppUiState
 import com.example.myapplication.AppViewModel
+import com.example.myapplication.ReaderTheme
 import kotlin.math.cos
 import kotlin.math.sin
-
-enum class ReaderTheme(val bg: Color, val text: Color, val icon: Color) {
-    Day(Color(0xFFFFFFFF), Color(0xFF111111), Color(0xFF666666)),
-    Cream(Color(0xFFF8F1E3), Color(0xFF3E362E), Color(0xFF8D8172)),
-    Night(Color(0xFF121212), Color(0xFFE0E0E0), Color(0xFF757575))
-}
 
 @Composable
 fun HomeScreen(
@@ -60,9 +52,8 @@ fun HomeScreen(
     val dateString by viewModel.dateString.collectAsState()
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
-
-    var textSizeSp by remember { mutableStateOf(20f) }
-    var currentTheme by remember { mutableStateOf(ReaderTheme.Day) }
+    val textSizeSp = viewModel.textSizeSp
+    val currentTheme = viewModel.currentTheme
 
     val scrollState = rememberScrollState()
 
@@ -88,14 +79,11 @@ fun HomeScreen(
                             .padding(horizontal = 20.dp)
                     ) {
                         Spacer(modifier = Modifier.height(48.dp))
-
-
                         Row(
                             modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween, // Pushes icons to edges
+                            horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-
                             IconButton(onClick = onFavoritesClick) {
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.List,
@@ -145,7 +133,6 @@ fun HomeScreen(
                         }
 
                         Spacer(modifier = Modifier.height(24.dp))
-
                         Text(story.title, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold, color = currentTheme.text, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(story.description, style = MaterialTheme.typography.bodyMedium, fontStyle = FontStyle.Italic, color = currentTheme.icon, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
@@ -166,17 +153,18 @@ fun HomeScreen(
 
                         Spacer(modifier = Modifier.height(16.dp))
 
+
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            IconButton(onClick = { shareStory(context, story.title, story.englishText) }) {
+                            IconButton(onClick = { viewModel.shareStory(context, story) }) {
                                 Icon(Icons.Default.Share, "Share", tint = currentTheme.icon)
                             }
 
                             IconButton(onClick = {
-                                currentTheme = when (currentTheme) {
+                                viewModel.currentTheme = when (viewModel.currentTheme) {
                                     ReaderTheme.Day -> ReaderTheme.Cream
                                     ReaderTheme.Cream -> ReaderTheme.Night
                                     ReaderTheme.Night -> ReaderTheme.Day
@@ -186,10 +174,10 @@ fun HomeScreen(
                             }
 
                             Row(verticalAlignment = Alignment.CenterVertically) {
-                                TextButton(onClick = { if (textSizeSp > 14f) textSizeSp -= 2f }) {
+                                TextButton(onClick = { if (viewModel.textSizeSp > 14f) viewModel.textSizeSp -= 2f }) {
                                     Text("A-", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = currentTheme.icon)
                                 }
-                                TextButton(onClick = { if (textSizeSp < 40f) textSizeSp += 2f }) {
+                                TextButton(onClick = { if (viewModel.textSizeSp < 40f) viewModel.textSizeSp += 2f }) {
                                     Text("A+", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = currentTheme.icon)
                                 }
                             }
@@ -203,7 +191,7 @@ fun HomeScreen(
                         } else {
                             contentPairs.forEach { (hebrew, english) ->
                                 Text(
-                                    text = parseHtml(hebrew),
+                                    text = viewModel.parseHtml(hebrew),
                                     style = MaterialTheme.typography.titleMedium,
                                     fontFamily = FontFamily.Serif,
                                     fontSize = (textSizeSp + 4).sp,
@@ -249,7 +237,6 @@ fun HomeScreen(
                         )
                     }
                 }
-
             }
 
             is AppUiState.Error -> {
@@ -261,22 +248,6 @@ fun HomeScreen(
             is AppUiState.Empty -> Text("No Data", modifier = Modifier.align(Alignment.Center), color = currentTheme.text)
         }
     }
-}
-
-// Helpers
-fun shareStory(context: Context, title: String, textList: List<String>) {
-    val cleanText = textList.joinToString("\n\n") { Html.fromHtml(it, Html.FROM_HTML_MODE_LEGACY).toString() }
-    val shareMessage = "$title\n\n$cleanText\n\n- Sent from Talmudic Wisdom Daily"
-    val sendIntent: Intent = Intent().apply {
-        action = Intent.ACTION_SEND
-        putExtra(Intent.EXTRA_TEXT, shareMessage)
-        type = "text/plain"
-    }
-    context.startActivity(Intent.createChooser(sendIntent, "Share Story"))
-}
-
-fun parseHtml(text: String): String {
-    return Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY).toString()
 }
 
 @Composable
