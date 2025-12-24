@@ -97,7 +97,7 @@ class AppViewModel(private val repository: ContentRepository) : ViewModel() {
 
     fun shareStory(context: Context, story: DailyStory) {
         val cleanText = story.englishText.joinToString("\n\n") { parseHtml(it) }
-        val shareMessage = "${story.title}\n\n$cleanText\n\n- Sent from Talmudic Wisdom Daily"
+        val shareMessage = "${story.title}\n\n$cleanText\n\n- Sent from Daily Talmud Tale"
 
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
