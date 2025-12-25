@@ -116,7 +116,7 @@ fun HomeScreen(
                             }
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(
-                                    text = "Daily Talmud Story",
+                                    text = "Daily Talmud Tale",
                                     style = MaterialTheme.typography.headlineSmall,
                                     fontWeight = FontWeight.Black,
                                     color = currentTheme.text
