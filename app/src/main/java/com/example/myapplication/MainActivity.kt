@@ -9,14 +9,17 @@ import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.navigation.Navigation
 import com.example.myapplication.data.network.service
 import com.example.myapplication.data.repository.ContentRepository
+import com.example.myapplication.data.repository.UserPreferencesRepository
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val repository = ContentRepository(applicationContext, service)
+
+        val contentRepository = ContentRepository(applicationContext, service)
+        val preferencesRepository = UserPreferencesRepository(applicationContext)
         val viewModel: AppViewModel by viewModels {
-            AppViewModelFactory(repository)
+            AppViewModelFactory(contentRepository, preferencesRepository)
         }
 
         setContent {

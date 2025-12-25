@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.model.DailyStory
 import com.example.myapplication.data.repository.ContentRepository
+import com.example.myapplication.data.repository.UserPreferencesRepository
 import com.example.myapplication.mvi.ContentAction
 import com.example.myapplication.mvi.ContentReducer
 import com.example.myapplication.mvi.ContentState
@@ -22,7 +23,10 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class AppViewModel(private val repository: ContentRepository) : ViewModel() {
+class AppViewModel(
+    private val contentRepository: ContentRepository,
+    private val preferencesRepository: UserPreferencesRepository
+) : ViewModel() {
 
     private val _state = MutableStateFlow(ContentState())
     val state: StateFlow<ContentState> = _state.asStateFlow()
@@ -33,11 +37,24 @@ class AppViewModel(private val repository: ContentRepository) : ViewModel() {
     private var currentDayOffset = 0
 
     var currentTheme by mutableStateOf(ReaderTheme.Day)
+        private set
+
     var textSizeSp by mutableStateOf(20f)
+        private set
 
     init {
         loadDailyWisdom()
         observeFavorites()
+        observePreferences()
+    }
+
+    private fun observePreferences() {
+        viewModelScope.launch {
+            preferencesRepository.userSettingsFlow.collect { settings ->
+                currentTheme = settings.theme
+                textSizeSp = settings.fontSize
+            }
+        }
     }
 
     private fun fireAction(action: ContentAction) {
@@ -54,7 +71,7 @@ class AppViewModel(private val repository: ContentRepository) : ViewModel() {
 
         viewModelScope.launch {
             try {
-                val story = repository.getDailyStory(currentDayOffset)
+                val story = contentRepository.getDailyStory(currentDayOffset)
                 fireAction(ContentAction.StoryLoaded(story))
             } catch (e: Exception) {
                 fireAction(ContentAction.StoryError(e.message ?: "Unknown Error"))
@@ -79,7 +96,7 @@ class AppViewModel(private val repository: ContentRepository) : ViewModel() {
 
     private fun observeFavorites() {
         viewModelScope.launch {
-            repository.favorites.collect { favoriteStories ->
+            contentRepository.favorites.collect { favoriteStories ->
                 fireAction(ContentAction.FavoritesLoaded(favoriteStories))
             }
         }
@@ -87,7 +104,34 @@ class AppViewModel(private val repository: ContentRepository) : ViewModel() {
 
     fun toggleFavorite(story: DailyStory) {
         viewModelScope.launch {
-            repository.toggleFavorite(story)
+            contentRepository.toggleFavorite(story)
+        }
+    }
+
+    fun toggleTheme() {
+        val newTheme = when (currentTheme) {
+            ReaderTheme.Day -> ReaderTheme.Cream
+            ReaderTheme.Cream -> ReaderTheme.Night
+            ReaderTheme.Night -> ReaderTheme.Day
+        }
+        viewModelScope.launch {
+            preferencesRepository.updateTheme(newTheme)
+        }
+    }
+
+    fun increaseFontSize() {
+        if (textSizeSp < 40f) {
+            viewModelScope.launch {
+                preferencesRepository.updateFontSize(textSizeSp + 2f)
+            }
+        }
+    }
+
+    fun decreaseFontSize() {
+        if (textSizeSp > 14f) {
+            viewModelScope.launch {
+                preferencesRepository.updateFontSize(textSizeSp - 2f)
+            }
         }
     }
 
@@ -107,7 +151,6 @@ class AppViewModel(private val repository: ContentRepository) : ViewModel() {
         context.startActivity(Intent.createChooser(sendIntent, "Share Story"))
     }
 }
-
 
 enum class ReaderTheme(val bg: Color, val text: Color, val icon: Color) {
     Day(Color(0xFFFFFFFF), Color(0xFF111111), Color(0xFF666666)),

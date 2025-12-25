@@ -13,8 +13,8 @@ android {
         applicationId = "com.Greenfield.DailyTalmud"
         minSdk = 24
         targetSdk = 36
-        versionCode = 3
-        versionName = "1.11"
+        versionCode = 5
+        versionName = "1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -62,6 +62,7 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation(libs.androidx.navigation.runtime.ktx)
+    implementation("androidx.datastore:datastore-preferences:1.2.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

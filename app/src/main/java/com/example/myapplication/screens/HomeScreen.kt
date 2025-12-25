@@ -39,7 +39,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import com.example.myapplication.AppUiState
 import com.example.myapplication.AppViewModel
-import com.example.myapplication.ReaderTheme
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -163,21 +162,15 @@ fun HomeScreen(
                                 Icon(Icons.Default.Share, "Share", tint = currentTheme.icon)
                             }
 
-                            IconButton(onClick = {
-                                viewModel.currentTheme = when (viewModel.currentTheme) {
-                                    ReaderTheme.Day -> ReaderTheme.Cream
-                                    ReaderTheme.Cream -> ReaderTheme.Night
-                                    ReaderTheme.Night -> ReaderTheme.Day
-                                }
-                            }) {
+                            IconButton(onClick = { viewModel.toggleTheme() }) {
                                 SunIcon(color = currentTheme.icon)
                             }
 
                             Row(verticalAlignment = Alignment.CenterVertically) {
-                                TextButton(onClick = { if (viewModel.textSizeSp > 14f) viewModel.textSizeSp -= 2f }) {
+                                TextButton(onClick = { viewModel.decreaseFontSize() }) {
                                     Text("A-", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = currentTheme.icon)
                                 }
-                                TextButton(onClick = { if (viewModel.textSizeSp < 40f) viewModel.textSizeSp += 2f }) {
+                                TextButton(onClick = { viewModel.increaseFontSize() }) {
                                     Text("A+", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = currentTheme.icon)
                                 }
                             }
