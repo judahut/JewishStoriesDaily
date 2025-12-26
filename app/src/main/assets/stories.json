@@ -1,188 +1,261 @@
 [
   {
-    "title": "Hillel and the Convert",
+    "titleEn": "Hillel and the Convert",
+    "titleHe": "הלל והגר",
     "ref": "Shabbat 31a:6",
-    "desc": "A potential convert asks Hillel to teach him the whole Torah while standing on one foot."
+    "descEn": "A potential convert asks Hillel to teach him the whole Torah while standing on one foot.",
+    "descHe": "גר מבקש מהלל ללמדו את כל התורה כשהוא עומד על רגל אחת."
   },
   {
-    "title": "Kamtza and Bar Kamtza",
+    "titleEn": "Kamtza and Bar Kamtza",
+    "titleHe": "קמצא ובר קמצא",
     "ref": "Gittin 55b:17-56a:4",
-    "desc": "The tragic story of a party invitation gone wrong that led to the destruction of Jerusalem."
+    "descEn": "The tragic story of a party invitation gone wrong that led to the destruction of Jerusalem.",
+    "descHe": "הסיפור הטרגי על הזמנה למסיבה שהשתבשה והובילה לחורבן ירושלים."
   },
   {
-    "title": "The Oven of Akhnai",
+    "titleEn": "The Oven of Akhnai",
+    "titleHe": "תנורו של עכנאי",
     "ref": "Bava Metzia 59b:1-5",
-    "desc": "The Sages debate God Himself, proving that the Torah is 'not in Heaven' but in the hands of man."
+    "descEn": "The Sages debate God Himself, proving that the Torah is 'not in Heaven' but in the hands of man.",
+    "descHe": "החכמים מתווכחים עם אלוהים ומוכיחים שהתורה 'לא בשמים היא' אלא בידי בני האדם."
   },
   {
-    "title": "Honi the Circle Maker",
+    "titleEn": "Honi's Long Sleep",
+    "titleHe": "שנתו הארוכה של חוני המעגל",
     "ref": "Taanit 23a:15-17",
-    "desc": "Honi sleeps for 70 years and wakes up to a world that no longer recognizes him."
+    "descEn": "Honi sleeps for 70 years and wakes up to a world that no longer recognizes him.",
+    "descHe": "חוני ישן במשך 70 שנה ומתעורר לעולם שאינו מכיר אותו עוד."
   },
   {
-    "title": "Rabbi Akiva's Beginning",
+    "titleEn": "Rabbi Akiva's Beginning",
+    "titleHe": "תחילת דרכו של רבי עקיבא",
     "ref": "Ketubot 62b:15-63a:2",
-    "desc": "How a poor shepherd became the greatest scholar thanks to the sacrifice of his wife, Rachel."
+    "descEn": "How a poor shepherd became the greatest scholar thanks to the sacrifice of his wife, Rachel.",
+    "descHe": "כיצד הפך רועה צאן עני לגדול הדור בזכות הקרבתה של אשתו, רחל."
   },
   {
-    "title": "Resh Lakish and Rabbi Yochanan",
+    "titleEn": "Resh Lakish and Rabbi Yochanan",
+    "titleHe": "ריש לקיש ורבי יוחנן",
     "ref": "Bava Metzia 84a:12-18",
-    "desc": "A bandit becomes a scholar after a chance meeting in the Jordan River, but a tragic argument ends in heartbreak."
+    "descEn": "A bandit becomes a scholar after a chance meeting in the Jordan River, but a tragic argument ends in heartbreak.",
+    "descHe": "שודד הופך לתלמיד חכם לאחר מפגש מקרי בנהר הירדן, אך וויכוח טרגי מסתיים בשברון לב."
   },
   {
-    "title": "Moses in Rabbi Akiva's Classroom",
+    "titleEn": "Moses in Rabbi Akiva's Classroom",
+    "titleHe": "משה בבית מדרשו של רבי עקיבא",
     "ref": "Menachot 29b:3-4",
-    "desc": "Moses time-travels to see Rabbi Akiva teaching and is humbled by what he sees."
+    "descEn": "Moses time-travels to see Rabbi Akiva teaching and is humbled by what he sees.",
+    "descHe": "משה רבנו נוסע בזמן כדי לראות את רבי עקיבא מלמד ונשאר נדהם וצנוע ממה שראה."
   },
   {
-    "title": "The Man Who Tempted the Nazir",
+    "titleEn": "The Man Who Tempted the Nazir",
+    "titleHe": "שמעון הצדיק והנזיר",
     "ref": "Nedarim 9b:5-7",
-    "desc": "Shimon HaTzaddik meets a beautiful shepherd who chooses to cut his hair for God."
+    "descEn": "Shimon HaTzaddik meets a beautiful shepherd who chooses to cut his hair for God.",
+    "descHe": "שמעון הצדיק פוגש רועה יפה תואר הבוחר לגלח את שיערו לשם שמיים."
   },
   {
-    "title": "Turn Back, Meir",
+    "titleEn": "Turn Back, Meir",
+    "titleHe": "רבי מאיר ואלישע בן אבויה",
     "ref": "Chagigah 15a:12",
-    "desc": "Rabbi Meir learns Torah from the heretic Elisha ben Abuyah, even as he rides a horse on Shabbat."
+    "descEn": "Rabbi Meir learns Torah from the heretic Elisha ben Abuyah, even as he rides a horse on Shabbat.",
+    "descHe": "רבי מאיר לומד תורה מהכופר אלישע בן אבויה, אפילו כשהוא רוכב על סוס בשבת."
   },
   {
-    "title": "Hillel in the Snow",
+    "titleEn": "Hillel in the Snow",
+    "titleHe": "הלל והשלג",
     "ref": "Yoma 35b:7-8",
-    "desc": "A poor Hillel climbs to the roof of the study hall to listen to Torah in the freezing cold."
+    "descEn": "A poor Hillel climbs to the roof of the study hall to listen to Torah in the freezing cold.",
+    "descHe": "הלל העני מטפס על גג בית המדרש כדי להקשיב לדברי תורה בקור המקפיא."
   },
   {
-    "title": "The Four Who Entered Pardes",
+    "titleEn": "The Four Who Entered Pardes",
+    "titleHe": "ארבעה שנכנסו לפרדס",
     "ref": "Chagigah 14b:8-9",
-    "desc": "Four great Sages enter a mystical orchard; only Rabbi Akiva emerges unscathed."
+    "descEn": "Four great Sages enter a mystical orchard; only Rabbi Akiva emerges unscathed.",
+    "descHe": "ארבעה חכמים גדולים נכנסו לפרדס המיסטי; רק רבי עקיבא יצא בשלום."
   },
   {
-    "title": "Rabbi Shimon in the Cave",
+    "titleEn": "Rabbi Shimon in the Cave",
+    "titleHe": "רבי שמעון בר יוחאי במערה",
     "ref": "Shabbat 33b:5-34a:2",
-    "desc": "Fleeing Roman execution, Rabbi Shimon bar Yochai and his son hide in a cave for 12 years."
+    "descEn": "Fleeing Roman execution, Rabbi Shimon bar Yochai and his son hide in a cave for 12 years.",
+    "descHe": "בבורחו גזר דין מוות מהרומאים, רבי שמעון בר יוחאי ובנו מתחבאים במערה במשך 12 שנה."
   },
   {
-    "title": "The Repentance of Elazar ben Durdaya",
+    "titleEn": "The Repentance of Elazar ben Durdaya",
+    "titleHe": "תשובתו של אלעזר בן דורדיא",
     "ref": "Avodah Zarah 17a:12-16",
-    "desc": "A man known for visiting every prostitute in the world realizes he must save his own soul."
+    "descEn": "A man known for visiting every prostitute in the world realizes he must save his own soul.",
+    "descHe": "אדם שנודע בכך שביקר אצל כל פרוצה בעולם מבין שעליו להציל את נשמתו שלו."
   },
   {
-    "title": "Nahum Ish Gamzu",
+    "titleEn": "Nahum Ish Gamzu",
+    "titleHe": "נחום איש גמזו",
     "ref": "Taanit 21a:11-14",
-    "desc": "The teacher of Rabbi Akiva who accepted every misfortune with the phrase, 'This too is for the good.'"
+    "descEn": "The teacher of Rabbi Akiva who accepted every misfortune with the phrase, 'This too is for the good.'",
+    "descHe": "רבו של רבי עקיבא שקיבל כל צרה במשפט 'גם זו לטובה'."
   },
   {
-    "title": "Wine in Earthen Vessels",
+    "titleEn": "Wine in Earthen Vessels",
+    "titleHe": "יין בכלי חרס",
     "ref": "Nedarim 50b:3-4",
-    "desc": "Rabbi Yehoshua teaches the Emperor's daughter that wisdom, like wine, keeps best in humble vessels."
+    "descEn": "Rabbi Yehoshua teaches the Emperor's daughter that wisdom, like wine, keeps best in humble vessels.",
+    "descHe": "רבי יהושע מלמד את בת הקיסר שחוכמה, כמו יין, נשמרת היטב דווקא בכלים פשוטים."
   },
   {
-    "title": "The Messiah at the Gates of Rome",
+    "titleEn": "The Messiah at the Gates of Rome",
+    "titleHe": "המשיח בשערי רומי",
     "ref": "Sanhedrin 98a:16-17",
-    "desc": "Rabbi Yehoshua ben Levi finds the Messiah among the beggars and asks him when he is coming."
+    "descEn": "Rabbi Yehoshua ben Levi finds the Messiah among the beggars and asks him when he is coming.",
+    "descHe": "רבי יהושע בן לוי מוצא את המשיח בין העניים ומבשר לו 'היום'."
   },
   {
-    "title": "The Handmaid's Prayer",
+    "titleEn": "The Handmaid's Prayer",
+    "titleHe": "תפילת האמה",
     "ref": "Ketubot 104a:2-6",
-    "desc": "While the Sages pray for Rabbi Yehuda HaNasi to live, his servant prays for his suffering to end."
+    "descEn": "While the Sages pray for Rabbi Yehuda HaNasi to live, his servant prays for his suffering to end.",
+    "descHe": "בעוד החכמים מתפללים לרפואת רבי יהודה הנשיא, שפחתו מתפללת לסיום סבלו."
   },
   {
-    "title": "The Jokers of the Market",
+    "titleEn": "The Jokers of the Market",
+    "titleHe": "הבדחנים בשוק",
     "ref": "Taanit 22a:7",
-    "desc": "Elijah the Prophet reveals that two comedians are the most deserving of the World to Come."
+    "descEn": "Elijah the Prophet reveals that two comedians are the most deserving of the World to Come.",
+    "descHe": "אליהו הנביא מגלה ששני בדחנים הם הראויים ביותר לחיי העולם הבא."
   },
   {
-    "title": "Alexander at the Gates of Eden",
+    "titleEn": "Alexander at the Gates of Eden",
+    "titleHe": "אלכסנדר מוקדון בשערי גן עדן",
     "ref": "Tamid 32b:2-4",
-    "desc": "Alexander the Great demands entry to Paradise but receives a human eyeball that outweighs all his gold."
+    "descEn": "Alexander the Great demands entry to Paradise but receives a human eyeball that outweighs all his gold.",
+    "descHe": "אלכסנדר מוקדון דורש להיכנס לגן עדן אך מקבל גלגל עין אנושי הכבד יותר מכל זהבו."
   },
   {
-      "title": "The Ugly Man",
-      "ref": "Taanit 20a:16-20b:3",
-      "desc": "Rabbi Elazar son of Rabbi Shimon insults an ugly man, only to be told: 'Go tell the Craftsman who made me how ugly I am.'"
+    "titleEn": "The Ugly Man",
+    "titleHe": "האיש המכוער",
+    "ref": "Taanit 20a:16-20b:3",
+    "descEn": "Rabbi Elazar son of Rabbi Shimon insults an ugly man, only to be told: 'Go tell the Craftsman who made me how ugly I am.'",
+    "descHe": "רבי אלעזר ברבי שמעון מעליב אדם מכוער, ונענה: 'לך לאומן שעשני ואמור לו כמה מכוער כלי זה שעשית'."
   },
   {
-      "title": "Rav Preida's Patience",
-      "ref": "Eruvin 54b:20-22",
-      "desc": "A teacher who taught a student the same lesson 400 times (and then 400 times again) is rewarded by God."
+    "titleEn": "Rav Preida's Patience",
+    "titleHe": "סבלנותו של רב פרידא",
+    "ref": "Eruvin 54b:20-22",
+    "descEn": "A teacher who taught a student the same lesson 400 times (and then 400 times again) is rewarded by God.",
+    "descHe": "רב שלימד תלמיד את אותו שיעור 400 פעם (ואז 400 פעם נוספות) וזכה לשכר מאת ה'."
   },
-    {
-      "title": "The Miracle of the Vinegar",
-      "ref": "Taanit 25a:5",
-      "desc": "When his daughter mistakes vinegar for oil on Shabbat, Rabbi Chanina ben Dosa says: 'He who commanded oil to burn will command vinegar to burn.'"
-    },
-    {
-      "title": "Titus and the Gnat",
-      "ref": "Gittin 56b:13-17",
-      "desc": "After destroying the Temple and challenging God, Titus is tortured for years by a gnat buzzing in his brain."
-    },
-    {
-      "title": "How to Respect One's Parents",
-      "ref": "Kiddushin 31a:9-11",
-      "desc": "A gentile loses a fortune because he refuses to wake his sleeping father to retrieve a key."
-    },
-    {
-      "title": "How To Respect Your Mother",
-      "ref": "Kiddushin 31b:5",
-      "desc": "Rabbi Tarfon acts as a footstool for his elderly mother, yet the Sages tell him he hasn't done enough."
-    },
-    {
-      "title": "Rav Huna's Sour Wine",
-      "ref": "Berakhot 5b:17-20",
-      "desc": "When Rav Huna loses 400 barrels of wine, the Sages urge him to examine his actions rather than blame bad luck."
-    },
-    {
-      "title": "All for the Best",
-      "ref": "Berakhot 60b:12-61a:1",
-      "desc": "Rabbi Akiva is stranded in the woods as his lamp, rooster, and donkey are killed, only to realize it saved him from capture."
-    },
-    {
-      "title": "King David and the Angel of Death",
-      "ref": "Shabbat 30a:9-30b:2",
-      "desc": "King David learns he will die on Shabbat, so he studies Torah non-stop to prevent the Angel of Death from touching him."
-    },
-    {
-      "title": "Herod Kills All the Rabbis Except One",
-      "ref": "Bava Batra 3b:14-4a:6",
-      "desc": "King Herod kills all the Rabbis except Bava ben Buta, whom he blinds, only to later regret it and ask for a way to atone."
-    },
   {
-    "title": "Hillel's Patience",
+    "titleEn": "The Miracle of the Vinegar",
+    "titleHe": "נס החומץ",
+    "ref": "Taanit 25a:5",
+    "descEn": "When his daughter mistakes vinegar for oil on Shabbat, Rabbi Chanina ben Dosa says: 'He who commanded oil to burn will command vinegar to burn.'",
+    "descHe": "כשבתו של רבי חנינא בן דוסא הדליקה בטעות חומץ במקום שמן, הוא אמר: 'מי שאמר לשמן וידלוק, יאמר לחומץ וידלוק'."
+  },
+  {
+    "titleEn": "Titus and the Gnat",
+    "titleHe": "טיטוס והיתוש",
+    "ref": "Gittin 56b:13-17",
+    "descEn": "After destroying the Temple and challenging God, Titus is tortured for years by a gnat buzzing in his brain.",
+    "descHe": "לאחר שהחריב את המקדש והתריס כנגד אלוהים, טיטוס עונה במשך שנים על ידי יתוש המזמזם במוחו."
+  },
+  {
+    "titleEn": "How to Respect One's Parents",
+    "titleHe": "דמא בן נתינה וכיבוד אב",
+    "ref": "Kiddushin 31a:9-11",
+    "descEn": "A gentile loses a fortune because he refuses to wake his sleeping father to retrieve a key.",
+    "descHe": "גוי מפסיד הון כיוון שהוא מסרב להעיר את אביו הישן כדי לקחת מפתח."
+  },
+  {
+    "titleEn": "How To Respect Your Mother",
+    "titleHe": "רבי טרפון וכיבוד אם",
+    "ref": "Kiddushin 31b:5",
+    "descEn": "Rabbi Tarfon acts as a footstool for his elderly mother, yet the Sages tell him he hasn't done enough.",
+    "descHe": "רבי טרפון משמש כהדום לרגלי אמו הזקנה, אך החכמים אומרים לו שעדיין לא עשה די."
+  },
+  {
+    "titleEn": "Rav Huna's Sour Wine",
+    "titleHe": "יינו של רב הונא",
+    "ref": "Berakhot 5b:17-20",
+    "descEn": "When Rav Huna loses 400 barrels of wine, the Sages urge him to examine his actions rather than blame bad luck.",
+    "descHe": "כשרב הונא מפסיד 400 חביות יין שהחמיצו, החכמים מפצירים בו לפשפש במעשיו במקום להאשים את המזל."
+  },
+  {
+    "titleEn": "All for the Best",
+    "titleHe": "כל דעביד רחמנא לטב עביד",
+    "ref": "Berakhot 60b:12-61a:1",
+    "descEn": "Rabbi Akiva is stranded in the woods as his lamp, rooster, and donkey are killed, only to realize it saved him from capture.",
+    "descHe": "רבי עקיבא נתקע ביער, נרו כבה וחמורו ותרנגולו נטרפים, אך הוא מבין שזה הציל אותו משבי."
+  },
+  {
+    "titleEn": "King David and the Angel of Death",
+    "titleHe": "דוד המלך ומלאך המוות",
+    "ref": "Shabbat 30a:9-30b:2",
+    "descEn": "King David learns he will die on Shabbat, so he studies Torah non-stop to prevent the Angel of Death from touching him.",
+    "descHe": "דוד המלך לומד שימות בשבת, ולכן לומד תורה ללא הפסקה כדי למנוע ממלאך המוות לגעת בו."
+  },
+  {
+    "titleEn": "Herod Kills All the Rabbis Except One",
+    "titleHe": "הורדוס ובבא בן בוטא",
+    "ref": "Bava Batra 3b:14-4a:6",
+    "descEn": "King Herod kills all the Rabbis except Bava ben Buta, whom he blinds, only to later regret it and ask for a way to atone.",
+    "descHe": "המלך הורדוס הורג את כל החכמים מלבד בבא בן בוטא, אותו הוא מסמא, אך מתחרט לאחר מכן ומבקש דרך לכפרה."
+  },
+  {
+    "titleEn": "Hillel's Patience",
+    "titleHe": "סבלנותו של הלל",
     "ref": "Shabbat 30b:12-31a:4",
-    "desc": "Two men bet money on whether one can make Hillel angry; despite many interruptions, Hillel remains calm."
+    "descEn": "Two men bet money on whether one can make Hillel angry; despite many interruptions, Hillel remains calm.",
+    "descHe": "שני אנשים מתערבים על כסף האם אחד מהם יצליח להכעיס את הלל; למרות הפרעות רבות, הלל נשאר רגוע."
   },
   {
-    "title": "Rabbi Yehuda and the Calf",
+    "titleEn": "Rabbi Yehuda and the Calf",
+    "titleHe": "רבי יהודה והעגל",
     "ref": "Bava Metzia 85a:5-7",
-    "desc": "Rabbi Yehuda HaNasi suffers for years because he showed no mercy to a calf being taken to slaughter."
+    "descEn": "Rabbi Yehuda HaNasi suffers for years because he showed no mercy to a calf being taken to slaughter.",
+    "descHe": "רבי יהודה הנשיא סובל ייסורים במשך שנים כיוון שלא גילה רחמים כלפי עגל שהובל לשחיטה."
   },
   {
-    "title": "Rabbi Akiva's Daughter",
+    "titleEn": "Rabbi Akiva's Daughter",
+    "titleHe": "בתו של רבי עקיבא",
     "ref": "Shabbat 156b:4-5",
-    "desc": "Astrologers predict Rabbi Akiva's daughter will die on her wedding day, but her act of charity saves her from a snake."
+    "descEn": "Astrologers predict Rabbi Akiva's daughter will die on her wedding day, but her act of charity saves her from a snake.",
+    "descHe": "חוזים בכוכבים מנבאים שבתו של רבי עקיבא תמות ביום חתונתה, אך מעשה צדקה שלה מציל אותה מהכשה."
   },
   {
-    "title": "King Solomon and Ashmedai, the King of the Demons",
+    "titleEn": "King Solomon and Ashmedai, the King of the Demons",
+    "titleHe": "שלמה המלך ואשמדאי",
     "ref": "Gittin 68a:7-68b:20",
-    "desc": "After being overthrown by the demon Ashmedai, King Solomon wanders the land claiming to be king, but no one believes him."
+    "descEn": "After being overthrown by the demon Ashmedai, King Solomon wanders the land claiming to be king, but no one believes him.",
+    "descHe": "לאחר שהודח על ידי השד אשמדאי, שלמה המלך נודד בארץ בטענה שהוא המלך, אך איש אינו מאמין לו."
   },
   {
-    "title": "Rabbi Chanina and the Lizard",
+    "titleEn": "Rabbi Chanina and the Lizard",
+    "titleHe": "רבי חנינא והערוד",
     "ref": "Berakhot 33a:8-10",
-    "desc": "Rabbi Chanina proves that it is not the lizard (arvad) that kills, but sin that kills, by placing his heel over its hole."
+    "descEn": "Rabbi Chanina proves that it is not the lizard (arvad) that kills, but sin that kills, by placing his heel over its hole.",
+    "descHe": "רבי חנינא מוכיח שאין הערוד ממית אלא החטא ממית, בכך שהוא מניח את עקבו על חור המאורה."
   },
   {
-    "title": "Rav Amram and the Ladder",
+    "titleEn": "Rav Amram and the Ladder",
+    "titleHe": "רב עמרם והסולם",
     "ref": "Kiddushin 81a:11-12",
-    "desc": "To stop himself from sinning with a captive woman, Rav Amram moves a heavy ladder and shouts 'Fire in Amram’s house!' to shame his own impulse."
+    "descEn": "To stop himself from sinning with a captive woman, Rav Amram moves a heavy ladder and shouts 'Fire in Amram’s house!' to shame his own impulse.",
+    "descHe": "כדי לעצור את עצמו מלחטוא עם שבויה, רב עמרם מזיז סולם כבד וצועק 'נורא בי עמרם!' כדי לבייש את יצרו."
   },
   {
-    "title": "Mar Ukva's Charity",
+    "titleEn": "Mar Ukva's Charity",
+    "titleHe": "צדקתו של מר עוקבא",
     "ref": "Ketubot 67b:12-14",
-    "desc": "Mar Ukva and his wife hide inside a hot oven to avoid shaming a poor man they were secretly giving money to."
+    "descEn": "Mar Ukva and his wife hide inside a hot oven to avoid shaming a poor man they were secretly giving money to.",
+    "descHe": "מר עוקבא ואשתו מתחבאים בתוך תנור חם כדי להימנע מלביים עני לו נתנו צדקה בסתר."
   },
   {
-    "title": "Yosef Who Honors Shabbat",
+    "titleEn": "Yosef Who Honors Shabbat",
+    "titleHe": "יוסף מוקיר שבת",
     "ref": "Shabbat 119a:5",
-    "desc": "A wealthy neighbor sells his estate to avoid it going to Yosef, but the proceeds (a pearl) end up in a fish on Yosef's Shabbat table."
+    "descEn": "A wealthy neighbor sells his estate to avoid it going to Yosef, but the proceeds (a pearl) end up in a fish on Yosef's Shabbat table.",
+    "descHe": "שכנו העשיר מוכר את נכסיו כדי שיוסף לא יירש אותם, אך התמורה (מרגלית) מגיעה לדג שעולה על שולחן השבת של יוסף."
   }
 ]
-

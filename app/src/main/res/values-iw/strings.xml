@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">סיפור תלמוד יומי</string>
+    <string name="app_title">סיפור יומי מהתלמוד</string> <string name="my_favorites">המועדפים שלי</string>
+    <string name="no_favorites">אין מועדפים עדיין!</string>
+    <string name="back">חזרה</string>
+
+    <string name="prev_day">יום קודם</string>
+    <string name="next_day">יום הבא</string>
+    <string name="toggle_favorite">סמן כמועדף</string>
+
+    <string name="source_label">מקור:</string>
+    <string name="share">שיתוף</string>
+    <string name="share_msg_footer">- נשלח מסיפור יומי מהתלמוד</string>
+
+    <string name="attribution_line">מקור: %1$s • באדיבות ספריא</string>
+
+    <string name="no_text">אין טקסט זמין.</string>
+    <string name="error_loading">שגיאה בטעינת התוכן</string>
+    <string name="retry">נסה שוב</string>
+    <string name="no_data">אין נתונים</string>
+</resources>

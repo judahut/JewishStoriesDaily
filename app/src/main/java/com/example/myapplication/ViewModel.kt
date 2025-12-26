@@ -42,6 +42,10 @@ class AppViewModel(
     var textSizeSp by mutableStateOf(20f)
         private set
 
+    // Helper to check if the phone is in Hebrew
+    val isSystemHebrew: Boolean
+        get() = Locale.getDefault().language == "he"
+
     init {
         loadDailyWisdom()
         observeFavorites()
@@ -64,6 +68,8 @@ class AppViewModel(
     fun loadDailyWisdom() {
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.DATE, currentDayOffset)
+
+        // Date Format: If Hebrew, it formats correctly automatically (e.g. "יום ראשון")
         val formatter = SimpleDateFormat("EEEE, MMM d, yyyy", Locale.getDefault())
         _dateString.value = formatter.format(calendar.time)
 
@@ -71,7 +77,8 @@ class AppViewModel(
 
         viewModelScope.launch {
             try {
-                val story = contentRepository.getDailyStory(currentDayOffset)
+                // PASS THE LANGUAGE FLAG HERE
+                val story = contentRepository.getDailyStory(currentDayOffset, isSystemHebrew)
                 fireAction(ContentAction.StoryLoaded(story))
             } catch (e: Exception) {
                 fireAction(ContentAction.StoryError(e.message ?: "Unknown Error"))
@@ -81,7 +88,7 @@ class AppViewModel(
 
     fun loadSpecificStory(story: DailyStory) {
         fireAction(ContentAction.StoryLoaded(story))
-        _dateString.value = "Selected Favorite"
+        _dateString.value = if (isSystemHebrew) "נבחר ממועדפים" else "Selected Favorite"
     }
 
     fun nextDay() {
@@ -140,8 +147,15 @@ class AppViewModel(
     }
 
     fun shareStory(context: Context, story: DailyStory) {
-        val cleanText = story.englishText.joinToString("\n\n") { parseHtml(it) }
-        val shareMessage = "${story.title}\n\n$cleanText\n\n- Sent from Daily Talmud Tale"
+        // Share text depends on the mode
+        val cleanText = if (isSystemHebrew) {
+            story.hebrewText.joinToString("\n\n") { parseHtml(it) }
+        } else {
+            story.englishText.joinToString("\n\n") { parseHtml(it) }
+        }
+
+        val footer = if (isSystemHebrew) "- נשלח מסיפור תלמוד יומי" else "- Sent from Daily Talmud Tale"
+        val shareMessage = "${story.title}\n\n$cleanText\n\n$footer"
 
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
@@ -151,7 +165,6 @@ class AppViewModel(
         context.startActivity(Intent.createChooser(sendIntent, "Share Story"))
     }
 }
-
 enum class ReaderTheme(val bg: Color, val text: Color, val icon: Color) {
     Day(Color(0xFFFFFFFF), Color(0xFF111111), Color(0xFF666666)),
     Cream(Color(0xFFF8F1E3), Color(0xFF3E362E), Color(0xFF8D8172)),

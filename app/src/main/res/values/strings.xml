@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Daily Talmud Tale</string>
+    <string name="app_title">Daily Talmud Tale</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="no_favorites">No favorites yet!</string>
+    <string name="back">Back</string>
+
+    <string name="prev_day">Previous Day</string>
+    <string name="next_day">Next Day</string>
+    <string name="toggle_favorite">Toggle Favorite</string>
+
+    <string name="source_label">Source:</string>
+    <string name="share">Share</string>
+    <string name="share_msg_footer">- Sent from Daily Talmud Tale</string>
+
+    <string name="attribution_line">Translation: %1$s • Powered by Sefaria</string>
+
+    <string name="no_text">No text available.</string>
+    <string name="error_loading">Error loading wisdom</string>
+    <string name="retry">Retry</string>
+    <string name="no_data">No Data</string>
 </resources>

@@ -25,10 +25,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.AppViewModel
+import com.example.myapplication.R
 import com.example.myapplication.data.model.DailyStory
 
 @Composable
@@ -50,10 +52,12 @@ fun FavoritesScreen(
         Spacer(modifier = Modifier.height(50.dp))
         Row(verticalAlignment = Alignment.CenterVertically) {
             IconButton(onClick = onBackClick) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                // AutoMirrored icon handles the flip for Hebrew automatically
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back))
             }
             Text(
-                "My Favorites",
+                // This ensures it says "המועדפים שלי" in Hebrew
+                text = stringResource(R.string.my_favorites),
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(start = 8.dp)
@@ -64,7 +68,7 @@ fun FavoritesScreen(
 
         if (favorites.isEmpty()) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("No favorites yet!", color = Color.Gray)
+                Text(stringResource(R.string.no_favorites), color = Color.Gray)
             }
         } else {
             LazyColumn {

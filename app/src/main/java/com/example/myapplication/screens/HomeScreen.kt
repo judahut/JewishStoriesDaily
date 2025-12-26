@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -39,6 +40,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import com.example.myapplication.AppUiState
 import com.example.myapplication.AppViewModel
+import com.example.myapplication.R
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -51,8 +53,10 @@ fun HomeScreen(
     val dateString by viewModel.dateString.collectAsState()
     val context = LocalContext.current
     val uriHandler = LocalUriHandler.current
+
     val textSizeSp = viewModel.textSizeSp
     val currentTheme = viewModel.currentTheme
+    val isSystemHebrew = viewModel.isSystemHebrew
 
     val scrollState = rememberScrollState()
 
@@ -69,8 +73,13 @@ fun HomeScreen(
             is AppUiState.Success -> {
                 val story = uiState.story
 
-                Row(modifier = Modifier.fillMaxSize()) {
+                val displayRef = if (isSystemHebrew && !story.heRef.isNullOrEmpty()) {
+                    story.heRef
+                } else {
+                    story.ref.replace("Steinsaltz on ", "")
+                }
 
+                Row(modifier = Modifier.fillMaxSize()) {
                     Column(
                         modifier = Modifier
                             .weight(1f)
@@ -78,25 +87,20 @@ fun HomeScreen(
                             .padding(horizontal = 20.dp)
                     ) {
                         Spacer(modifier = Modifier.height(48.dp))
+                        // HEADER ROW
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             IconButton(onClick = onFavoritesClick) {
-                                Icon(
-                                    imageVector = Icons.AutoMirrored.Filled.List,
-                                    contentDescription = "My Favorites",
-                                    tint = currentTheme.icon,
-                                    modifier = Modifier.size(32.dp)
-                                )
+                                Icon(Icons.AutoMirrored.Filled.List, stringResource(R.string.my_favorites), tint = currentTheme.icon, modifier = Modifier.size(32.dp))
                             }
-
                             val isFav = story.isFavorite
                             IconButton(onClick = { viewModel.toggleFavorite(story) }) {
                                 Icon(
-                                    imageVector = if (isFav) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-                                    contentDescription = "Toggle Favorite",
+                                    if (isFav) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                                    stringResource(R.string.toggle_favorite),
                                     tint = if (isFav) Color.Red else currentTheme.icon,
                                     modifier = Modifier.size(32.dp)
                                 )
@@ -105,17 +109,18 @@ fun HomeScreen(
 
                         Spacer(modifier = Modifier.height(24.dp))
 
+                        // DATE ROW
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             IconButton(onClick = { viewModel.previousDay() }) {
-                                Icon(Icons.AutoMirrored.Filled.ArrowBack, "Prev", tint = currentTheme.icon)
+                                Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.prev_day), tint = currentTheme.icon)
                             }
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(
-                                    text = "Daily Talmud Tale",
+                                    text = stringResource(R.string.app_title),
                                     style = MaterialTheme.typography.headlineSmall,
                                     fontWeight = FontWeight.Black,
                                     color = currentTheme.text
@@ -127,7 +132,7 @@ fun HomeScreen(
                                 )
                             }
                             IconButton(onClick = { viewModel.nextDay() }) {
-                                Icon(Icons.AutoMirrored.Filled.ArrowForward, "Next", tint = currentTheme.icon)
+                                Icon(Icons.AutoMirrored.Filled.ArrowForward, stringResource(R.string.next_day), tint = currentTheme.icon)
                             }
                         }
 
@@ -138,70 +143,90 @@ fun HomeScreen(
                         Spacer(modifier = Modifier.height(8.dp))
 
                         Text(
-                            text = "Source: ${story.ref}",
+                            text = "${stringResource(R.string.source_label)} $displayRef",
                             style = MaterialTheme.typography.bodyMedium,
                             color = Color(0xFF2196F3),
                             textDecoration = TextDecoration.Underline,
                             textAlign = TextAlign.Center,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable {
-                                    uriHandler.openUri("https://www.sefaria.org/${story.ref}")
-                                }
+                            modifier = Modifier.fillMaxWidth().clickable { uriHandler.openUri("https://www.sefaria.org/${story.ref}") }
                         )
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-
+                        // CONTROLS ROW
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             IconButton(onClick = { viewModel.shareStory(context, story) }) {
-                                Icon(Icons.Default.Share, "Share", tint = currentTheme.icon)
+                                Icon(Icons.Default.Share, stringResource(R.string.share), tint = currentTheme.icon)
                             }
-
                             IconButton(onClick = { viewModel.toggleTheme() }) {
                                 SunIcon(color = currentTheme.icon)
                             }
-
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 TextButton(onClick = { viewModel.decreaseFontSize() }) {
-                                    Text("A-", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = currentTheme.icon)
+                                    Text(if (isSystemHebrew) "א-" else "A-", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = currentTheme.icon)
                                 }
                                 TextButton(onClick = { viewModel.increaseFontSize() }) {
-                                    Text("A+", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = currentTheme.icon)
+                                    Text(if (isSystemHebrew) "א+" else "A+", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = currentTheme.icon)
                                 }
                             }
                         }
 
                         HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp), color = currentTheme.icon.copy(alpha = 0.3f))
 
-                        val contentPairs = story.hebrewText.zip(story.englishText)
-                        if (contentPairs.isEmpty()) {
-                            Text("No text available.", color = currentTheme.text)
+                        // TEXT DISPLAY
+                        if (isSystemHebrew) {
+                            if (story.hebrewText.isEmpty()) {
+                                Text(stringResource(R.string.no_text), color = currentTheme.text)
+                            } else {
+                                story.hebrewText.forEach { line ->
+                                    var cleanLine = line
+                                    cleanLine = cleanLine.replace(Regex("^\\s*<[^>]+>\\s*[א-ת]['\\.]?\\s*</[^>]+>\\s*"), "")
+                                    cleanLine = cleanLine.replace(Regex("^(\\s*<[^>]+>)\\s*[א-ת]['\\.]?\\s+"), "$1")
+                                    cleanLine = cleanLine.replace(Regex("^\\s*[א-ת]['\\.]?\\s+"), "")
+                                    HtmlText(html = cleanLine, textSizeSp = (textSizeSp + 2), color = currentTheme.text, modifier = Modifier.fillMaxWidth())
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                            }
                         } else {
-                            contentPairs.forEach { (hebrew, english) ->
-                                Text(
-                                    text = viewModel.parseHtml(hebrew),
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontFamily = FontFamily.Serif,
-                                    fontSize = (textSizeSp + 4).sp,
-                                    textAlign = TextAlign.Right,
-                                    lineHeight = (textSizeSp * 1.5).sp,
-                                    color = currentTheme.text,
-                                    modifier = Modifier.fillMaxWidth()
-                                )
-                                Spacer(modifier = Modifier.height(12.dp))
-                                HtmlText(html = english, textSizeSp = textSizeSp, color = currentTheme.text)
-                                Spacer(modifier = Modifier.height(32.dp))
+                            // ENGLISH MODE: SAFE LOOP
+                            if (story.hebrewText.isEmpty() && story.englishText.isEmpty()) {
+                                Text(stringResource(R.string.no_text), color = currentTheme.text)
+                            } else {
+                                val maxLines = maxOf(story.hebrewText.size, story.englishText.size)
+                                for (i in 0 until maxLines) {
+                                    val hebrewLine = story.hebrewText.getOrNull(i)
+                                    val englishLine = story.englishText.getOrNull(i)
+
+                                    if (!hebrewLine.isNullOrBlank()) {
+                                        Text(
+                                            text = viewModel.parseHtml(hebrewLine),
+                                            style = MaterialTheme.typography.titleMedium,
+                                            fontFamily = FontFamily.Serif,
+                                            fontSize = (textSizeSp + 4).sp,
+                                            textAlign = TextAlign.Right,
+                                            lineHeight = (textSizeSp * 1.5).sp,
+                                            color = currentTheme.text,
+                                            modifier = Modifier.fillMaxWidth()
+                                        )
+                                        Spacer(modifier = Modifier.height(8.dp))
+                                    }
+                                    if (!englishLine.isNullOrBlank()) {
+                                        HtmlText(html = englishLine, textSizeSp = textSizeSp, color = currentTheme.text)
+                                    }
+                                    Spacer(modifier = Modifier.height(32.dp))
+                                    HorizontalDivider(color = currentTheme.icon.copy(alpha = 0.1f))
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
                             }
                         }
 
                         Spacer(modifier = Modifier.height(24.dp))
                         Text(
-                            text = "Translation: ${story.englishSource} • Powered by Sefaria",
+                            text = stringResource(R.string.attribution_line, story.englishSource),
                             style = MaterialTheme.typography.labelSmall,
                             color = currentTheme.icon,
                             textAlign = TextAlign.Center,
@@ -209,53 +234,39 @@ fun HomeScreen(
                         )
                         Spacer(modifier = Modifier.height(40.dp))
                     }
-
-                    val progress = if (scrollState.maxValue > 0) {
-                        scrollState.value.toFloat() / scrollState.maxValue.toFloat()
-                    } else {
-                        0f
-                    }
-                    Box(
-                        modifier = Modifier
-                            .fillMaxHeight()
-                            .width(6.dp)
-                            .background(currentTheme.icon.copy(alpha = 0.1f))
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .fillMaxHeight(progress)
-                                .background(currentTheme.icon.copy(alpha = 0.5f))
-                                .clip(RoundedCornerShape(bottomStart = 4.dp, bottomEnd = 4.dp))
-                        )
+                    val progress = if (scrollState.maxValue > 0) scrollState.value.toFloat() / scrollState.maxValue.toFloat() else 0f
+                    Box(modifier = Modifier.fillMaxHeight().width(6.dp).background(currentTheme.icon.copy(alpha = 0.1f))) {
+                        Box(modifier = Modifier.fillMaxWidth().fillMaxHeight(progress).background(currentTheme.icon.copy(alpha = 0.5f)).clip(RoundedCornerShape(bottomStart = 4.dp, bottomEnd = 4.dp)))
                     }
                 }
             }
 
             is AppUiState.Error -> {
                 Column(modifier = Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text("Error loading wisdom", color = Color.Red)
-                    Button(onClick = { viewModel.loadDailyWisdom() }) { Text("Retry") }
+                    Text("Error Details: ${uiState.exception.message}", color = Color.Red, textAlign = TextAlign.Center, modifier = Modifier.padding(16.dp))
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Button(onClick = { viewModel.loadDailyWisdom() }) { Text(stringResource(R.string.retry)) }
                 }
             }
-            is AppUiState.Empty -> Text("No Data", modifier = Modifier.align(Alignment.Center), color = currentTheme.text)
+            is AppUiState.Empty -> Text(stringResource(R.string.no_data), modifier = Modifier.align(Alignment.Center), color = currentTheme.text)
         }
     }
 }
 
 @Composable
-fun HtmlText(html: String, modifier: Modifier = Modifier, textSizeSp: Float, color: Color) {
+fun HtmlText(html: String, modifier: Modifier = Modifier, textSizeSp: Float, color: Color, fontFamily: Typeface = Typeface.SERIF) {
     AndroidView(
         modifier = modifier.fillMaxWidth(),
         factory = { context ->
             TextView(context).apply {
-                typeface = Typeface.SERIF
+                this.typeface = fontFamily
             }
         },
         update = { textView ->
             textView.text = HtmlCompat.fromHtml(html, HtmlCompat.FROM_HTML_MODE_LEGACY)
             textView.textSize = textSizeSp
             textView.setTextColor(color.toArgb())
+            textView.textAlignment = TextView.TEXT_ALIGNMENT_VIEW_START
         }
     )
 }
@@ -266,22 +277,13 @@ fun SunIcon(color: Color) {
         val radius = size.minDimension / 6
         val stroke = 2.dp.toPx()
         val center = this.center
-
         drawCircle(color = color, radius = radius, style = Stroke(width = stroke))
-
         for (i in 0 until 8) {
             val angle = i * 45.0 * (Math.PI / 180)
             val startRadius = radius * 1.5f
             val endRadius = radius * 2.2f
-
-            val start = Offset(
-                x = (center.x + startRadius * cos(angle)).toFloat(),
-                y = (center.y + startRadius * sin(angle)).toFloat()
-            )
-            val end = Offset(
-                x = (center.x + endRadius * cos(angle)).toFloat(),
-                y = (center.y + endRadius * sin(angle)).toFloat()
-            )
+            val start = Offset((center.x + startRadius * cos(angle)).toFloat(), (center.y + startRadius * sin(angle)).toFloat())
+            val end = Offset((center.x + endRadius * cos(angle)).toFloat(), (center.y + endRadius * sin(angle)).toFloat())
             drawLine(color, start, end, strokeWidth = stroke, cap = StrokeCap.Round)
         }
     }
